@@ -8,7 +8,7 @@ The digital collections from the artistic and historical archive, managed by the
 
 <b>RESULTS</b>: 
 
---> Conceptual model and conversion documentation, available at the web page: 
+--> Conceptual model and conversion documentation, available at the web page: https://donellimargherita.github.io/DHLOD/
 
 --> the RDF version of the sample data, available in the following formats: 
       - Turtle  
