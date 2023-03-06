@@ -1,0 +1,504 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+	
+	<!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+	
+	<!--css-->
+	<style>
+	h1 {
+			padding:2px 60px;
+	}
+	
+	div#content {
+		  padding: 70px;
+	}
+	
+	div#pres_space {
+		padding: 70px;
+	}
+	
+	div#Documentation {
+		padding: 70px;
+	}
+	
+	html {
+			scroll-padding-top: 120px;
+	} 
+
+	#proto_space {
+			background-color:hsla(9, 100%, 64%, 0.1);
+			border: 2px solid LightSlateGray;
+			border-radius: 12px;
+			padding: 30px !important;
+	}
+		
+	#navbar-example2 {
+			background-color: MistyRose !important;
+	}
+		
+		.nav-link {
+			color: black;
+		}
+		
+		figcaption {
+			font-size: small;
+		}
+		
+		#footer {
+			font-size: small;
+			background-color: Gainsboro !important;
+			padding: 50px;
+		}
+			
+		header {
+			position: fixed;
+			width: 100%;
+			top: 0;
+			left: 0;
+			background-color: LightPink;
+		}
+		
+		a {
+			color: gray;
+		}
+	</style>
+	
+
+    <title>Bridge The Gap - Model</title>
+  </head>
+  <body>
+	
+    <header>
+    <h1>DHLOD</h1>
+
+    <!--Navbar component from Bootsrap-->
+		<nav id="navbar-example2" class="navbar navbar-light bg-light px-3">
+			<a class="navbar-brand" href="#"></a>
+			<ul class="nav nav-pills">
+				<li class="nav-item">
+					<a class="nav-link" href="index.html">Home</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="model.html">Conceptual Model</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="dataset.html">Dataset</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="credits.html">Credits</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="documentation.html">Documentation</a>
+				</li>
+				
+			</ul>
+	</nav>
+	</header>
+	<div id="content">
+
+		<div id="proto_space" class="container">
+			<h4 id="prototype">Conceptual Model</h4>
+				<p id="intro"><i> The model represents the collection of descriptive metadata.
+									The conceptual model is based on CIDOC CRM conceptual model and EFRBRoo andintegrates when needed, some other ontologies.
+				</i></p>
+				
+				<ul class="nav flex-column">
+				  <li class="nav-item">
+				    <a class="nav-link active" aria-current="page" href="#core">Core Concepts</a>
+				  </li>
+				  <li class="nav-item">
+				    <a class="nav-link" href="#creation">Expression Creation</a>
+				  </li>
+				  <li class="nav-item">
+				    <a class="nav-link" href="#expression">Expression</a>
+				  </li>
+				  <li class="nav-item">
+				    <a class="nav-link " href="manifestation">Manifestation</a>
+				  </li>
+				  <li class="nav-item">
+				    <a class="nav-link " href="uncertain">Uncertain Data</a>
+				  </li>
+				</ul>
+
+				<div id="core">
+				<h5>The core concepts: creation, expression and manifestation</h5>
+					<p>The foundation of the conceptual model is composed of a triad of concepts from FRBRoo which describe each item, namely (1) the item as the product of intellectual creation, (2) as an actual expression and (3) as a unique physical manifestation.</p>
+				  <div class="row">
+					<div class="col">
+					  <p>Every item of the collection is represented by (1) an expression creation URI (named after the original item id plus a prefix “expr_creation”), of class efrbroo:F28_Expression_Creation; the expression creation is related to both (2) an expression URI (named after the original item id plus a prefix “expr”), of class efrbroo:F2_Expression, linked through the property efrbroo:R17_created, and (3) a manifestation URI (named again after the original item id plus a prefix “manif”) of class efrbroo:F4_Manifestation_Singleton, linked through the property efrbroo:R18_created.</p> 
+					</div>
+					<div class="col">
+						<figure>
+							<img id="img" src="C:\Users\meggh\OneDrive\Documents\UNIBO\DHDK\TESI\IMG\TESI - Core Concepts.jpg"> 
+						</figure>
+					</div>
+				  </div>
+				  
+				  <div class="row" id="creation">
+				  	<h5>Expression creation and its description: the intellectual work</h5>
+					<div class="col">
+						<figure>
+							<img id="img" src="C:\Users\meggh\OneDrive\Documents\UNIBO\DHDK\TESI\IMG\TESI - AUTHOR - CERTAIN.jpg">
+						</figure>
+					</div>
+					<div class="col">
+						<h6>Author and biographic data</h6>
+						<p>The author name is a required metadata in the original database: it needs to be properly
+							represented both when it is expressed as a plain name and both
+							when the authoriality assignment is complex . Thus, the author's
+							representation was a pivotal point in the conceptual model design.
+							Each author is represented as an entity belonging to the class efrbroo:F10_Person. The
+							relation between the expression creation URI and the author URI is expressed by the property
+							ecrm:P14_carried_out_by.
+							Usually, the record of each author string in the source database embeds biographic
+							information, namely the place and date of birth and the place and date of death (e.g.
+							Passerotti Bartolomeo (Bologna, 1529 - 1592). Following the CIDOC-CRM event-centric
+							approach to modelling, the author URI is connected to two URIs representing the event of
+							the birth and the event of the death of the author. Then, each event is annotated with a
+							machine-readable place and time of occurrence.
+							In particular, the author URI is related to the birth URI having class crm:E67_Birth via the
+							property crm:P98i_was_born. The birth URI is linked via the property
+							crm:P4_has_time_span to the “Bdate” URI, of class crm:E52_Time-Span. The
+							“Bdate”, in order to be machine readable as a proper period of time, is better defined with a
+							starting point and an ending point: through the property crm:P82a_begin_of_the_begin
+							as a Literal date object (in the xsd:date format) and via the property
+							crm:P82b_end_of_the_end as a second Literal date object. The “Bplace” URI represent
+							the place of the event, as expressed by the property crm:P7_took_place_at. This Bplace
+							entity has class crm:E53_Place and is defined more explicitly via the label (RDFS:label
+							property) expressed as a Literal string object. The same detailed model applies to the death
+							event, represented by a death URI of class crm:E69_Death linked with the author URI
+							through the property crm:P100i_died_in.</p> 
+					</div>
+					
+				  </div>
+				  <div class="row">
+					<div class="col">
+					  <h6>Dating</h6>
+					  <p>The expression creation is an event that occurs (property ecrm:P86_falls_within) in a
+							period of time, represented with the “dating” URI, having class ecrm:E52_Time-Span.
+							The model here follows as before: the two points in time are defined
+							by a first machine-readable date object (crm:P82a_begin_of_the_begin property) and a
+							second similar date object (crm:P82b_end_of_the_end property); and the URI is also
+							labelled (RDFS:label property) with a Literal string object.
+							In the original database, dating information is not mandatory and is expressed in different
+							ways: as an exact date, as a period delimited by two dates or as a more general century
+							indication. While it is important to convert all the dates in a machine-readable format - thus
+							with one or two precise points in time in the xsd:date format - these different expressions
+							are crucial to explicitly mark different kinds of fuzziness in chronological data (e.g. “1575”
+							is a simple date, “1740-1815” is a period, “prima metà XVII sec.” is a century ). This is the
+							reason why a “dating type” entity has been added; three URIs can be assigned consequently: dhlod:data_semplice for exact dates, dhlod:data_periodo for a delimited period of
+							years, and dhlod:data_secolo for centuries.</p> 
+					</div>
+					<div class="col">
+						<figure>
+							<img id="img" src="C:\Users\meggh\OneDrive\Documents\UNIBO\DHDK\TESI\IMG\TESI - DATE - CERTAIN.jpg"> 
+						</figure>
+					</div>
+				  </div>
+				  <div class="row">
+					<div class="col">
+						<figure>
+							<img id="img" src="C:\Users\meggh\OneDrive\Documents\UNIBO\DHDK\TESI\IMG\TESI - TECNIQUE.jpg">
+						</figure>
+					</div>
+					<div class="col">
+						<h6>Technique</h6>
+						<p>Despite its importance, information about technique is unavailable for all items in the
+							archival collection, but only for the categories “Dipinti” and “Disegni”.
+							In the model the technique is an entity of class crm:E55_Type and is directly linked to the
+							expression creation entity to the property ecrm:P32_used_general_technique.
+							The alignment is represented by
+							the property owl:sameAs, which connects the technique URI with the URI of the term from
+							the AAT taxonomy.</p> 
+					</div>
+				</div>
+				<div class="row" id="expression">
+				  	<h5>Expression and its description</h5>
+					<div class="col">
+						<figure>
+							<img id="img" src="C:\Users\meggh\OneDrive\Documents\UNIBO\DHDK\TESI\IMG\TESI - PUBLICATION.jpg">
+						</figure>
+					</div>
+					<div class="col">
+						<h6>Publisher and place of publication</h6>
+						<p>The publication and the relative metadata are described in the model following the
+CIDOC-CRM approach. As shown in figure 4.6, the expression is physically embodied
+(property efrbroo:R41_has_representative_manifestation_product_type) by
+a manifestation product type (automatically generated URI of class
+efrbroo:F3_manifestation_product_type)82. The latter is an object that carries
+(property efrbroo:CLR6_should_carry) the content as graphically edited and organised
+by the publisher: this concept is expressed by the publication expression URI, an entity of
+class efrbroo:F24_publication_expression. The publisher is thus the person
+responsible (ecrm:P14_carried_out_by property) for the publication expression. The
+publisher URI is generally classified as actor (crm:E39_Actor) and specified by the
+property ecrm:P14.1_in_the_role_of, which assigns the role of publisher (role URI)
+among other possible types of roles (entity of class ecrm:E55_Type). It is also made
+available the string expressing the publisher, through the RDFS:label property. Moreover, when available, the data about the place of publication are expressed as the place in which the
+publisher resides (publisher URI, ecrm:P74_has_current_or_former_residence,
+place of publication URI; and place of publication, is a object of class ecrm:E53_Place,
+having a string as a label (RDFS:label property).</p> 
+					</div>
+					
+				  </div>
+				  <div class="row">
+					<div class="col">
+					  <h6>Category</h6>
+					  <p>As mentioned in section 4.1.1 - The collection taxonomy, the archival items have been
+classified by the Collections Taxonomy. In the conceptual model, a type assignment
+(property ecrm:P2_has_type) draws a direct relationship between the intellectual work
+(expression URI) and the category term from the Collections Taxonomy, as shown in figure
+4.7.</p> 
+					</div>
+					<div class="col">
+						<figure>
+							<img id="img" src="C:\Users\meggh\OneDrive\Documents\UNIBO\DHDK\TESI\IMG\TESI - CATEGORY.jpg"> 
+						</figure>
+					</div>
+				  </div>
+				  <div class="row">
+					<div class="col">
+						<figure>
+							<img id="img" src="C:\Users\meggh\OneDrive\Documents\UNIBO\DHDK\TESI\IMG\TESI - keywords and bibliography.jpg">
+						</figure>
+					</div>
+					<div class="col">
+						<h6>Bibliography and Keywords</h6>
+						<p>As shown in figure 4.8, the item expression is about (property dct:subject) some main
+themes, that are he expressed as a Literal object (the keywords string). Additionally, some
+bibliographic references (string) describe (ecrm:P67_refers_to) the content of an item
+(efrbroo:F2_Expression).</p> 
+					</div>
+				</div>
+				<div class="row" id="manifestation">
+				  	<h5>Manifestation and its description: the physical item</h5>
+					<div class="col">
+						<figure>
+							<img id="img" src="C:\Users\meggh\OneDrive\Documents\UNIBO\DHDK\TESI\IMG\TESI - IDENTIFICATION.jpg">
+						</figure>
+					</div>
+					<div class="col">
+						<h6>Identification: title, item id and inventory number</h6>
+						<p>The model comprehends three ways for item identification: (1) the title, which is here
+represented as a Literal string object and is linked to the manifestation URI via the property
+dct:title.
+Additionally, (2) the inventory number (unique code assigned to the item in order to
+catalogue it and retrieve it in the physical archive, represented as instance of class
+ecrm:E42_Identifier) and (3) the item identifier (alphanumeric code, unique for each
+item, but automatically generated by the database management software and referring to
+database item, represented as an instance of the class efrbroo:F13_Identifier) are both
+related to the manifestation URI through the property ecrm:p1_is_identified_by as
+shown in figure 4.9.</p> 
+					</div>
+					
+				  </div>
+				  <div class="row">
+					<div class="col">
+					  <h6>Physical description: dimension, pagination, ligature, support,
+iconography</h6>
+					  <p>As shown in figure 4.10, the physical description describes a plethora of archival objects of
+different types that carry a variety of physical features. The dimension is common to bibliographical and artistic objects and is represented in the data
+model as in CIDOC CRM: a manifestation URI has dimension
+(ecrm:P43_has_dimension), a URI belonging to crm:E54_Dimension. Each
+dimension is connected with the measurement unit URI (ecrm:E58_Measurement_Unit),
+and the actual dimension value (ecrm:E60_Number).
+The further descriptions of the manifestation regard its vessel and the manufacturing of the
+object itself: the manifestation URI is related via the property ecrm:P45_consist_of to
+the physical man made thing URI (class ecrm:E24_Physical_Man-Made_Thing), that
+“comprises all the persistent physical items that are purposely created by human activity”
+(ICOM/CIDOC Documentation Standards Group, 2020). Artwork iconography is
+specifically represented with the triple “manifestation URI ecrm:P62_depicts
+iconography (string)”.
+For the manuscript description, some particular metadata are required: pagination, ligature
+and support. The pagination URI (of class ecrm:E18_Physical_Thing) reports how
+many pages or folios the physical man-made thing is composed of
+(ecrm:P46_is_composed_of property) and it is also annotated by a Literal string object.
+The ligature URI accounts for the material and the technique used for the book ligature
+(ecrm:P19_bears_feature property): it is an entity of class
+ecrm:E29_Physical_Feature with its rdfs:label. Finally, the support URI of class
+ecrm:E57_Material describes the material of the writing support with the property
+ecrm:P45_consist_of.</p> 
+					</div>
+					<div class="col">
+						<figure>
+							<img id="img" src="C:\Users\meggh\OneDrive\Documents\UNIBO\DHDK\TESI\IMG\TESI - physical description .jpg"> 
+						</figure>
+					</div>
+				  </div>
+				  <div class="row">
+					<div class="col">
+						<figure>
+							<img id="img" src="C:\Users\meggh\OneDrive\Documents\UNIBO\DHDK\TESI\IMG\TESI - OWNERSHIP.jpg">
+						</figure>
+					</div>
+					<div class="col">
+						<h6>Ownership: artwork owner or artwork origin</h6>
+						<p>As explained in section 3.4.2.2 - Data cleaning, Data alignment and RDF dataset
+production, the concept of ownership is reported in the model with two fields: “artwork
+origin” and “artwork owner”. So, in the model the concept of the former owner is expressed
+by the relation ecrm:P51_has_former_or_current_owner between the manifestation
+URI and a former owner URI belonging to class ecrm:E39_Actor. The former owner URI
+can be identified (ecrm:P131_is_identified_by property) by both the artwork origin
+and the artwork owner data values, expressed as URIs of class
+ecrm:E82_Actor_Appellation as shown in figure 4.11.</p> 
+					</div>
+				</div>
+								  <div class="row">
+					<div class="col">
+					  <h6>Other information: notes, linked resources and related artwork</h6>
+					  <p>References of other institutions’ digital catalogues describing the same artwork are
+represented with the property rdfs:seeAlso. Relations between objects inside the
+collection are generically represented through the property skos:related. Finally, the
+commentary notes by the cataloguer are represented as Literals via the property
+ecrm:P3_has_note. Figure 4.12 graphically represents this section.</p> 
+					</div>
+					<div class="col">
+						<figure>
+							<img id="img" src="C:\Users\meggh\OneDrive\Documents\UNIBO\DHDK\TESI\IMG\TESI - Other Info.jpg"> 
+						</figure>
+					</div>
+				  </div>
+				  <div class="row" id="uncertain">
+				  	<h5>Data deemed to be uncertain</h5>
+						<h6> Uncertain Authors </h6>
+					<div class="row">
+					<div class="col">
+					  <h6><i> Workshop or school </i></h6>
+					  <p>Art historians use the term “Workshop of…” or “School of...” or “Circle of...” when the
+responsible for the artwork creation is not a single artist but a group of artists, or it is clear
+that there is a recognisable style thus the author is a member of the school. These groups can
+be indicated through their common master or via the common city or area of action.
+As in LinkedArt83, the object of the property ecrm:P14_carried_out_by is a “bottega
+URI” an entity of class crm:E74_Group carrying the name of the group. The group
+responsible for the expression creation is then furtherly described: the group have been
+created through (property crm:P95i_formed_by) a formation action (URI of class
+crm:E66_Formation); the formation action is a gathering around either a master (property
+crm:P15_was_influenced_by), which is expressed by URI of class
+efrbroo:F10_Person, or a place (URI of class crm:E53_Place) in which a style is
+diffused (property crm:P7_took_place_at), as shown in figure 4.13.</p> 
+					</div>
+					<div class="col">
+						<figure>
+							<img id="img" src="C:\Users\meggh\OneDrive\Documents\UNIBO\DHDK\TESI\IMG\TESI - UNCERTAIN AUTHOR TYPE 1A .jpg"> 
+						</figure>
+					</div>
+				  </div>
+				  <div class="row">
+					<div class="col">
+					  <h6><i>Anonymous </i></h6>
+					  <p>In the source dataset, unknown authors are annotated as “anonymous”, while in the DHLOD
+conceptual model RDF object of type “Blank Node” is implied as a high-functioning
+substitute for the term “Anonymous”. A blank node is defined as “simply indicating the
+existence of a thing, without using an IRI to identify any particular thing”(W3C 2014).
+As shown in figure 4.14, the model represents the blank node as a unique entity of class
+efrbroo:F10_Person and labelled with the string “Blank Node Anonimo”. When
+available, other data are added to better define the anonymous author in question. For
+example, if the author is drawing inspiration from a known author the blank node is linked to
+a known author URI (class efrbroo:F10_Person) via the property
+crm:P15_was_influenced_by. Or for example, an anonymous author can be defined by
+the place where he was active - in this case, the blank node is related to the place of activity
+URI (crm:E53_Place) via the gndo:PlaceOfActivity property - or by the period of
+time when he was active - represented by a blank node, the property
+gndo:periodOfActivity and the century URI (class crm:E52_Time-Span).</p> 
+					</div>
+					<div class="col">
+						<figure>
+							<img id="img" src="C:\Users\meggh\OneDrive\Documents\UNIBO\DHDK\TESI\IMG\TESI - UNCERTAIN AUTHOR TYPE 1B .jpg"> 
+						</figure>
+					</div>
+					<div class="row">
+					<div class="col">
+					  <h6><i>Hypothetical author assignment (uncertain attribution) </i></h6>
+					  <p>The last case of uncertainty in the metadata describing the responsibility for an expression
+creation is the so-called hypothetical author assignment: the responsibility is not clearly
+stated, but the cataloguer or the art historian propose a guess about the hypothetical author.
+The fact that the data is carrying hypothetical information and thus not a certain one is
+expressed in the original database by adding in the author string a question mark or the
+abbreviation “attr.”, meaning “attributed” to the attributed author.
+The model instead expresses the fact that the data is a hypothesis in an explicit fashion for
+both the user and the machine (here the database management system). Different conceptual
+models propose different solutions for the explicit expression of attributions as described in
+section 2.1.1 - Data modeling of complex authoriality and uncertainty. In the ideation of the
+conceptual model presented here, we chose to adopt the practice suggested by the
+CIDOC-CRM model. As shown in figure 4.15, the uncertain information is clustered and
+identified with a unique URL, formed by “attrAss” plus the item identifier, of class
+crm:E13_Attribute_Assignment.
+The hypothesis is then expressed with three statements: (1) the attribution subject (the
+expression creation URI in our case) declaration via the property
+crm:P140_assigned_attribute_to; (2) the attributed relation statement (in our case ecrm:P14_carried_out_by) via the property
+crm:P177_assigned_property_of_type; and (3) the attribution object identification
+through the property crm:P141_assigned. The object will be in our case the attributed
+author name, represented by a simple author URI, of class efrbroo:F10_Person. It will be
+recognised as an attributed author thanks to the conceptual structure, where it is not directly
+connected to the expression creation via the property ecrm:P14_carried_out_by, but
+through the relation with the attribute assignment URI.
+In the original database, the uncertainty is noted, as previously explained, by adding a textual
+signal to the author string. The different textual signals are not useful for identifying an
+attribution in the model but they still bear information about the hypothesis formulation. The
+latter are preserved in the model using the attribution type URI, which is attached to the
+attribution assignment URI via the property ecrm:P2_has_type, and it can have two
+values: (1) “uncertain attribution”, if the textual signal was a question mark, meaning that the
+hypothesis is still a guess, or “attribution”, if the textual signal is the substring “attr.”, then the
+hypothesis is likely to be widespread and verified among the critics.</p> 
+					</div>
+					<div class="col">
+						<figure>
+							<img id="img" src="C:\Users\meggh\OneDrive\Documents\UNIBO\DHDK\TESI\IMG\TESI - UNCERTAIN AUTHOR TYPE 2 .jpg"> 
+						</figure>
+					</div>	
+				  </div>			
+					<div class="row">
+					<div class="col">
+						<h6> Uncertain Dates</h6>
+						<p>Uncertain dates are modelled following the same structure used for the hypothetical author
+assignment, described in the previous paragraph (section 4.1.6.1 - Hypothetical author
+assignment). As shown in figure 4.16, the uncertain information is represented by a unique
+URI of class crm:E13_Attribute_Assignment, composed with the prefix “DateAttrAss”
+and the item identifier. The attribution is illustrated through the three same statements: (1) the
+subject will be again the expression creation URI; (2) the relation will be this time the
+property ecrm:P86_falls_within; and (3) the object will be a date URI, treated as the
+other dates in the standard version of the model (having a label and a machine-readable
+expression of time delimiters).
+The textual signals in this case are expressed as date qualifier URIs: the question mark
+signals an uncertain attribution (date qualifier value unknown); the “circa” substring (date
+qualifier value circa) enlarges the borders of the time-span; the “post” substring (date
+qualifier value post) and the “ante” substring (date qualifier value ante) define respectively a
+post quem term and an ante quem term, and finally all the other substrings are qualified with
+the value approximation.</p>
+					</div>
+					<div class="col">
+						<figure>
+							<img id="img" src="C:\Users\meggh\OneDrive\Documents\UNIBO\DHDK\TESI\IMG\TESI - UNCERTAIN DATING .jpg"> 
+						</figure>
+					</div>
+					</div>
+					<div class="row">
+					<div class="col">
+						<h6> Uncertain Titles</h6>
+						<p>The titles deemed to be uncertain are represented in the model using the same structure
+described before, with some slight differences. As shown in figure 4.17, the URI of the
+attribution assignment is formed by the prefix “TitAttrAss”. The objects of the three
+statements about the attribution assignment are respectively the manifestation URI, the
+dct:title property and the Literal string object containing the attributed title. Finally, the
+textual signal is here called Title attribution type and can assume two values:
+“uncertain_title” if it is a question mark and “attributed_title” for square parenthesis
+wrapping the string, which is a practice to identify information added by the editor.</p>
+					</div>
+					<div class="col">
+						<figure>
+							<img id="img" src="C:\Users\meggh\OneDrive\Documents\UNIBO\DHDK\TESI\IMG\TESI - UNCERTAIN TITLE .jpg"> 
+						</figure>
+					</div>
+					</div>
+					
+			
+			  
+
+    

@@ -1,7 +1,0 @@
-<!DOCTYPE html>
-<html>
-<body>
-<h1>DHLOD</h1>
-<p>DHLOD project website is coming soon</p>
-</body>
-</html>

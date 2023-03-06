@@ -1,0 +1,285 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+	
+	<!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+	
+	<!--css-->
+	<style>
+	h1 {
+			padding:2px 60px;
+	}
+	
+	div#content {
+		  padding: 70px;
+	}
+	
+	div#pres_space {
+		padding: 70px;
+	}
+	
+	div#Documentation {
+		padding: 70px;
+	}
+	
+	html {
+			scroll-padding-top: 120px;
+	} 
+
+	#proto_space {
+			background-color:hsla(9, 100%, 64%, 0.1);
+			border: 2px solid LightSlateGray;
+			border-radius: 12px;
+			padding: 30px !important;
+	}
+		
+	#navbar-example2 {
+			background-color: MistyRose !important;
+	}
+		
+		.nav-link {
+			color: black;
+		}
+		
+		figcaption {
+			font-size: small;
+		}
+		
+		#footer {
+			font-size: small;
+			background-color: Gainsboro !important;
+			padding: 50px;
+		}
+			
+		header {
+			position: fixed;
+			width: 100%;
+			top: 0;
+			left: 0;
+			background-color: LightPink;
+		}
+		
+		a {
+			color: gray;
+		}
+	</style>
+	
+
+    <title>Bridge The Gap - Documentation</title>
+  </head>
+  <body>
+	
+    <header>
+    <h1>DHLOD</h1>
+
+    <!--Navbar component from Bootsrap-->
+		<nav id="navbar-example2" class="navbar navbar-light bg-light px-3">
+			<a class="navbar-brand" href="#"></a>
+			<ul class="nav nav-pills">
+				<li class="nav-item">
+					<a class="nav-link" href="presentation.html">Home</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="model.html">Conceptual Model</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="dataset.html">Dataset</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="credits.html">Credits</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="documentation.html">Documentation</a>
+				</li>
+				
+			</ul>
+	</nav>
+	</header>
+	<div id="content">
+
+		<div class="container" id="Documentation">
+			<h4>Documentation</h4>
+				<p>
+			<h5>Methdology</h5>
+			<p>The methodology adopted to carry out the research is the workflow used and defined by the
+mythLOD project. As described by Pasqual and Tomasi, the process is a series of
+“consequential and iterative steps” that can be summarised as follows:
+(1) Analysis of input data; (2) Data management - which can be broken down into
+(2.1) data modelling, (2.2) data cleaning, entity linking and dataset production; (3)
+Dataset testing activity and visualisation tools implementation. (Pasqual and Tomasi
+2022)
+Analysis of input data (1) aims to analyse source data in order to assess database consistency
+considering metadata quality. From this analysis, three main considerations emerged: the
+presence of a significant amount of qualitative data, i.e. non-numeric data, composed of
+sequences of character strings; the lack of use of reference models, both for the structure
+(ontologies) and for the data (for example, controlled vocabularies or taxonomies); the
+presence of an interestingly high number of “complex authoriality” records. In the data
+management phase (2), as claimed by (Pasqual and Tomasi 2022), “the whole process of the
+conversion of the [...] collection from a tabular format into LOD” has been performed over
+the analysis described in (1). The (2.1) conceptual model design recommends the re-use of
+ontologies and semantic structures for the domain representation, using as main reference
+models FRBRoo and CIDOC-CRM; (2.2) the data cleaning, data alignment and RDF
+production via RDFlib are recommended for the standardisation of ambiguous data and the
+creation of RDF valid URIs. mythLOD methodology suggests data alignment (e.g.
+authorities), in DHLOD the internal Collection Taxonomy has been aligned with the AAT68
+taxonomy, cf. section 3.4.2.2 - Data cleaning, Data alignment and RDF dataset production.
+With regards to data validation and testing (3), the testing was conducted via competency
+questions defined with domain experts from Fondazione Carisbo, SPARQL query has run
+over the Knowledge Base and domain experts feedback have been collected. As a result, the data visualisation proposed by the mythLOD methodology was not utilised as feedback from
+the queries was obtained.</p> 
+			<h5>Source data analysis and competency questions definition</h5>
+			<p>The source data are a partial extraction from the Digital Humanities Fondazione Carisbo
+project database. The extraction result was made available by the database manager as a
+JSON file. Each database item was provided with up to 134 metadata (expressed as key-value
+pairs) concerning descriptive artwork metadata, metadata about the database entry, an internal
+taxonomy for the items categorisation and operational metadata. While performing the source
+materials analysis I selected a set of relevant metadata used for the description of artworks.
+The table is the result of the second data analysis and each row represents each selected
+metadata, as reported in table 3.1. Each row specifies: the field name (metadata field column)
+with its original form in the relational database inside the brackets; an original illustrative
+record (original record column), usually provided with one example, or a couple when
+different syntax options are present; definition of drawbacks (problem definition column)
+that must be solved during the data cleaning activity; proposed solutions for addressing the
+identified problems (possible solution column). Finally, the first column clusters the metadata
+into “groups”: this is useful both for the model design and the data manipulation process.</p> 
+
+			<h5>Data management activities</h5>
+			<h6>Modelling</h6>
+			<p>The modelling activity was carried out by reusing existing ontologies as proposed by
+(Pasqual and Tomasi 2022).
+Although mythLOD has been modelled over the Digital Hermeneutics conceptual model
+(Daquino, Pasqual, and Tomasi 2020), the model was not suited for DHLOD data. DHLOD
+data are neither involving subjective information (e.g. attributions, titles, and dates), nor the
+provenance information available in the Digital Humanities Fondazione Carisbo Database
+are considered sufficiently precise. For example, the database specifically records
+provenance information about the annotator who performed the digitisation of each
+catalographic record, but no information is provided about the cataloguer. As a result, Digital
+Hermeneutics conceptual structure was excluded and a plain RDF triple structure was
+adopted.<p> 
+	
+			<p>Overall the whole data modelling activity, a set of mind maps has been designed without
+implying any term belonging to existing ontologies in order to set all the pieces of content in
+a triple-fashion structure. Then, I reviewed the literature on existing ontologies (presented in
+sections 2.1- Models and ontologies for cultural heritage domain and 2.2 - Conversion from a
+simple format to LOD) and selected terms from existing ontologies so as to refactor the
+model.
+(1) FRBRoo69, (2) CIDOC-CRM conceptual model70, (3) its LinkedArt application71 and (4)
+the GND ontology72 has been reused to model descriptive metadata. Additionally, the
+assertion representation (e.g. uncertain attributions, dates and titles) has been represented in a
+triple-fashion by reusing CIDOC-CRM conceptual model for the sake of model consistency.</p> 
+			
+			
+<h6>Data cleaning, Data alignment and RDF dataset production</h6>
+			<h6><i>Data cleaning</i></h6>
+			<p>
+The data cleaning operations were performed in order to create strings that could be correctly
+transformed into valid URIs in the next phase of the process (RDF production).
+After the analysis illustrated in the previous paragraph (cf. 3.4.1 - Source data analysis and
+competency questions definition), the solutions proposed were put into practice via mostly
+automatic execution of the following operations.
+Several semi-automatic data cleaning activities have been performed over data:
+<ul><li>String conversion into valid URIs. For example, spaces and diacritics signs have been
+automatically removed over strings in several fields ( e.g. inventory number, category,
+publisher, place of publication, artwork owner and artwork origin) in order to form
+valid URIs which are both machine and human-readable.
+</li><li>String conversion into machine readable terms.
+- When possible, verbose strings (e.g. the technique “acquerello su carta
+azzurra” or simply “acquerello”) have been converted and reconciled into
+valid URIs and the relative string label (e.g. dhlod:acquerello and rdfs:label “acquerello”). This has been applied for example to “support”
+and “technique” categories.
+- Otherwise, if it was not possible to reduce the phrase into a single concept
+label, the value was expressed as a string and thus not transformed (i.e. title,
+link 1 and link 2, pagination, ligature, tags, bibliography, artwork notes,
+iconography).
+- Additionally, when possible dates have been converted into machine-readable
+format.
+</li><li> Information disaggregation (in other words, it expresses the need to unpack clusters of
+information containing a single string).
+- Measurements records. Measurement strings from the original database (e.g.
+“16 cm” and “3 m”) have been split into “measurement unit” (e.g a valid
+number, “16”xsd:integer) and “measurement value” (e.g. a valid URI,
+m3lite:Centimetre).
+- Simple authorialities records. In the original database, the “author” field
+contains the author's name and surname and the relative biographical
+information (e.g. place and date of birth, place and date of death). In the
+DHLOD Knowledge Base, this information has been cleaned and stored
+separately as author, place of birth, date of birth, place of death, and date of
+death.
+- Complex authorialities records. The author metadata field is also interesting
+for the high level of value fuzziness: as noted in the data analysis table (cf.
+table 3.1), this field can have four different types of values: (1) the basic
+certain value - the name of the author (and biographical information) and the
+values deemed to be uncertain, where the authorial responsibility is expressed
+as (2) workshops, (3) anonymous author and (4) hypothetically attributed to
+an author. The data manipulation work here was different for every group. The
+first operation was the analysis of all the values and the definition of the
+textual signal under which create the first two groups: the certain authors and
+the uncertain authors (“(a)nonimo”, “?”, “(b)ottega”, “(s)cuola”, “attr.”,
+“cerchia”). Certain authors were processed as explained before with automatic
+substring extraction in order to disaggregate biographical data. Then the
+uncertain authors were divided into the three remaining subgroups: the attributed authors (4) were processed as the certain authors; the workshop
+group (3) reunited all the values carrying the substring “scuola ”, “bottega”,
+“cerchia” and automatically processed to extract the clustered values ( group
+name, master name, place of group formation); the last group, the anonymous
+authors, created under the textual signal “anonimo” and was
+semi-automatically processed to extract, when present, the clustered values of
+period of activity, place of activity, inspiration source.
+- Uncertain dates and titles. The same process of disjunction of certain and
+uncertain values was also applied to the metadata fields “title” and “dating”.
+For the titles, the textual signals were “?” and “[]”, while for dates were “?”,
+“ca”, “post”, “ante”. After the grouping aimed at the different models to
+follow in the conversion, the date values have been converted into a
+machine-readable format. For example, centuries were automatically
+manipulated via the Roman library, while single dates, periods, centuries and
+also uncertain dates were manipulated via Date-time library.
+</li><li>Information cross-control and reorganisation. For example, the concept of ownership
+is expressed in the original database through two different metadata, “artwork origin”
+and “artwork owner”. Although they appear to refer to two separate concepts, they
+actually express the same concept: the report is the name of the former owner of the
+artwork that is now owned by the Fondazione Carisbo archive. The cross-control of
+the values demonstrated the fact that the two fields are always used alternatively
+because they never occurred for the same item. Thus, DHLOD maintains the two data
+labels (“artwork origin” and “artwork owner”) as specifications of the same
+conceptual model.</li></ul>
+			</p>
+
+			<h6><i>Data alignment</i></h6>
+<p>As anticipated in section 3.3 - Methodology, the data alignment was carried out only for the
+values of the “technique” metadata field and for the internal database categories taxonomy
+(Collection Taxonomy).
+The technique used by the author to create an artwork is an objective concept. However, it
+can be expressed in multiple ways, with a subjective interpretation especially when no common taxonomy has been established in the annotation process. This is the reason why it
+was felt the need to give further details and to increase the consistency of the concepts. This
+goal was reached by manually aligning the technique values with the corresponding terms in
+the Art & Architecture Taxonomy by Getty Research Institute. On the practical side, after the
+process of string conversion into machine readable terms (cf. Data cleaning), each label was
+assigned a term from the controlled vocabulary, as reported in the following table 3.2.</p><p> The second alignment operation was operated on the first hierarchical order of terms of the
+taxonomy Collections, created in order to formalise the internal organisation of the database
+(cf. 4.1.1 - The collection taxonomy).</p>
+
+<h6><i>RDF dataset production</i></h6>
+<p>
+The last data manipulation operation of the workflow is the actual conversion of the data into
+RDF triples. This process was performed automatically via the python library RDFlib75. For
+every triple were defined subject, property and object from the ontologies defined in the
+model or by creating the URIs through the module URIref. For BlankNodes, where required
+in the model, the correct URIs were generated via the module BNode. The resulting file, in
+turtle format, is presented in section 4.2 - the RDF dataset. <p>
+		</div>
+		<div>
+			<h5>Dataset revision: testing and domain experts review</h5>
+
+		</div>
+	</div>
+	
+	
+
+</body>
+    
