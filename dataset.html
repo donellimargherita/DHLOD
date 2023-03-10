@@ -18,7 +18,7 @@
   </head>
   <body>
     <header>
-
+    <div class="container-lg">
     <!--Navbar component from Bootsrap-->
 		<nav id="navbar-example2" class="navbar navbar-expand-lg navbar-dark bg-primary">
 			<div class="container-fluid">
@@ -43,6 +43,7 @@
 			</ul>
 		</div>
 		</nav>
+	</div>
 		</header>
 
 	<div class="container-lg">
@@ -54,18 +55,18 @@
 		</div>
 		<div	class="container-md">
 			<div class="row">
-		<h4>RDF dataset</h4>
-		<p> The result of the conversion is an RDF file in turtle format that will be made available to the
-public.
-For the sake of clarity, the following table (4.1) will bring an example of the conversion for
-every selected metadata field. As described in mythLOD methodology, the categories reported in table 3.1 are now formally presented as they are expected to be in the Knowledge
-Base according to the data model described in section 4.1 - Conceptual model. </p>
-	</div>
-</div>
-
-<div class="row">
-	<h4>Download DHLOD dataset</h4>
-            
+				<div class="col">
+					<h4>RDF dataset</h4>
+					<div>
+					<p> The result of the conversion is an RDF dataset that is here be made available to the public.</p>
+					<p> The conversion was carried out using the RDFlib over a semiautomatically manipulated version of the source data (the result of a data cleaning process). </p>
+					<p>In the table the different version of the dataset are avalable for the dowload.</p>
+					</div>
+					<div> <p> Check out the <a href="credits.html">credits</a> page for re-use information.</p>
+					</div>	
+				</div>
+				<div class="col">
+					<h4>Download DHLOD dataset</h4>
             <table class="table">
                 <thead class="thead-dark">
                   <tr class="table-secondary">
@@ -88,7 +89,9 @@ Base according to the data model described in section 4.1 - Conceptual model. </
     
                 </tbody>
               </table>
-            </div>  
-           </div>
+          </div>  
+        </div>
+      </div>
+     </div>
   
 </body>
